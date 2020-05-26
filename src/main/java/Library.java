@@ -27,4 +27,9 @@ public class Library {
         int index = this.books.indexOf(book);
         this.books.remove(index);
     }
+
+    public void lendBook(Book book, Borrower borrower) {
+        borrower.addBook(book);
+        removeBook(book);
+    }
 }

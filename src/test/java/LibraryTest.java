@@ -7,12 +7,14 @@ public class LibraryTest {
 
     private Library library;
     private Book book1, book2;
+    private Borrower borrower;
 
     @Before
     public void before() {
         library = new Library(5);
         book1 = new Book("Mort", "Terry Pratchett", "Comic Fantasy");
         book2 = new Book("Wizard and Glass", "Stephen King", "Fantasy");
+        borrower = new Borrower("Jane Doe");
     }
 
     @Test
@@ -44,6 +46,22 @@ public class LibraryTest {
         library.addBook(book2);
         library.removeBook(book2);
         assertEquals(1, library.getBooks());
+    }
+
+    @Test
+    public void canLendBook() {
+        library.addBook(book1);
+        library.addBook(book2);
+        library.lendBook(book1, borrower);
+        assertEquals(1, library.getBooks());
+    }
+
+    @Test
+    public void borrowerGetsBook() {
+        library.addBook(book1);
+        library.addBook(book2);
+        library.lendBook(book1, borrower);
+        assertEquals(1, borrower.getCollection());
     }
 
 
