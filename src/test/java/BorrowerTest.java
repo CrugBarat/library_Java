@@ -22,4 +22,9 @@ public class BorrowerTest {
         assertEquals("Jane Doe", borrower.getName());
     }
 
+    @Test
+    public void hasNoBooks() {
+        assertEquals(0, borrower.getCollection());
+    }
+
 }
