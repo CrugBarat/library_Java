@@ -10,4 +10,7 @@ public class Borrower {
         this.collection = new ArrayList<Book>();
     }
 
+    public String getName() {
+        return this.name;
+    }
 }

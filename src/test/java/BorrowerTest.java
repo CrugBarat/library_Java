@@ -1,4 +1,7 @@
 import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class BorrowerTest {
 
@@ -12,6 +15,11 @@ public class BorrowerTest {
         library = new Library(5);
         book1 = new Book("Mort", "Terry Pratchett", "Comic Fantasy");
         book2 = new Book("Wizard and Glass", "Stephen King", "Fantasy");
+    }
+
+    @Test
+    public void hasName() {
+        assertEquals("Jane Doe", borrower.getName());
     }
 
 }
