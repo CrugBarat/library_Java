@@ -17,4 +17,9 @@ public class BookTest {
         assertEquals("The Gunslinger", book.getTitle());
     }
 
+    @Test
+    public void hasAuthor(){
+        assertEquals("Stephen King", book.getAuthor());
+    }
+
 }
