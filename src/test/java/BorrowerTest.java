@@ -34,7 +34,7 @@ public class BorrowerTest {
     }
 
     @Test
-    public void borrowerGetsBook() {
+    public void canGetBookFromLibrary() {
         library.addBook(book1);
         library.addBook(book2);
         library.lendBook(book1, borrower);

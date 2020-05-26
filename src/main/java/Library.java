@@ -1,13 +1,16 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Library {
 
     private ArrayList<Book> books;
     private int capacity;
+    private HashMap<String, Integer> genreCount;
 
     public Library(int capacity){
         this.books = new ArrayList<Book>();
         this.capacity = capacity;
+        this.genreCount = new HashMap<String, Integer>();
     }
 
     public int getBooks() {
@@ -31,5 +34,10 @@ public class Library {
     public void lendBook(Book book, Borrower borrower) {
         borrower.addBook(book);
         removeBook(book);
+    }
+
+
+    public int getGenreCount() {
+        return this.genreCount.size();
     }
 }
