@@ -8,4 +8,7 @@ public class Library {
         this.books = new ArrayList<Book>();
     }
 
+    public int getBooks() {
+        return this.books.size();
+    }
 }
