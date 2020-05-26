@@ -56,14 +56,4 @@ public class LibraryTest {
         assertEquals(1, library.getBooks());
     }
 
-    @Test
-    public void borrowerGetsBook() {
-        library.addBook(book1);
-        library.addBook(book2);
-        library.lendBook(book1, borrower);
-        assertEquals(1, borrower.getCollection());
-    }
-
-
-
 }
