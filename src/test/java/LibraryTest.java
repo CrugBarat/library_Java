@@ -57,15 +57,20 @@ public class LibraryTest {
     }
 
     @Test
-    public void genreCountStartsAtZero() {
-        assertEquals(0, library.getGenreCount());
+    public void genreCountHashStartsAtZero() {
+        assertEquals(0, library.getGenreCountSize());
     }
 
     @Test
     public void canStartGenreCount() {
         library.addGenre(book1, 1);
-        assertEquals(1, library.getGenreCount());
+        assertEquals(1, library.getGenreCountSize());
     }
 
+    @Test
+    public void canGetGenreValue() {
+        library.addGenre(book1, 10);
+        assertEquals(10, library.getGenreValue(book1));
+    }
 
 }

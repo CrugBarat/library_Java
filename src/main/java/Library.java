@@ -36,12 +36,16 @@ public class Library {
         removeBook(book);
     }
 
-
-    public int getGenreCount() {
+    public int getGenreCountSize() {
         return this.genreCount.size();
     }
 
     public void addGenre(Book book, Integer value) {
         this.genreCount.put(book.getGenre(), value);
     }
+
+    public int getGenreValue(Book book) {
+        return this.genreCount.get(book.getGenre());
+    }
+
 }
