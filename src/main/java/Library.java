@@ -48,4 +48,12 @@ public class Library {
         return this.genreCount.get(book.getGenre());
     }
 
+    public void incrementGenreValue(Book book) {
+        if (!this.genreCount.containsKey(book.getGenre())) {
+            addGenre(book, 1);
+        } else {
+            int value = getGenreValue(book) + 1;
+            this.genreCount.replace(book.getGenre(), value);
+        }
+    }
 }

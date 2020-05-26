@@ -62,7 +62,7 @@ public class LibraryTest {
     }
 
     @Test
-    public void canStartGenreCount() {
+    public void canAddGenre() {
         library.addGenre(book1, 1);
         assertEquals(1, library.getGenreCountSize());
     }
@@ -71,6 +71,14 @@ public class LibraryTest {
     public void canGetGenreValue() {
         library.addGenre(book1, 10);
         assertEquals(10, library.getGenreValue(book1));
+    }
+
+    @Test
+    public void canCountGenre() {
+        library.incrementGenreValue(book1);
+        library.incrementGenreValue(book2);
+        library.incrementGenreValue(book1);
+        assertEquals(2, library.getGenreValue(book1));
     }
 
 }
