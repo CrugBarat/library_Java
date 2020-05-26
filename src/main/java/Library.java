@@ -40,4 +40,8 @@ public class Library {
     public int getGenreCount() {
         return this.genreCount.size();
     }
+
+    public void addGenre(Book book, Integer value) {
+        this.genreCount.put(book.getGenre(), value);
+    }
 }

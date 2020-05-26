@@ -61,4 +61,11 @@ public class LibraryTest {
         assertEquals(0, library.getGenreCount());
     }
 
+    @Test
+    public void canStartGenreCount() {
+        library.addGenre(book1, 1);
+        assertEquals(1, library.getGenreCount());
+    }
+
+
 }
