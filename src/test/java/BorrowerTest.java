@@ -37,14 +37,14 @@ public class BorrowerTest {
     public void canGetBookFromLibrary() {
         library.addBook(book1);
         library.addBook(book2);
-        library.lendBook(book1, borrower);
+        library.lendBook(book1, borrower, "12/06/2020");
         assertEquals(1, borrower.getCollection());
     }
 
     @Test
     public void canRemoveBook() {
         library.addBook(book1);
-        library.lendBook(book1, borrower);
+        library.lendBook(book1, borrower, "12/06/2020");
         borrower.removeBook(book1);
         assertEquals(0, borrower.getCollection());
     }
@@ -52,7 +52,7 @@ public class BorrowerTest {
     @Test
     public void canReturnBookToLibrary() {
         library.addBook(book1);
-        library.lendBook(book1, borrower);
+        library.lendBook(book1, borrower, "12/06/2020");
         borrower.returnBook(book1, library);
         assertEquals(0, borrower.getCollection());
     }

@@ -52,8 +52,16 @@ public class LibraryTest {
     public void canLendBook() {
         library.addBook(book1);
         library.addBook(book2);
-        library.lendBook(book1, borrower);
+        library.lendBook(book1, borrower, "11/07/2020");
         assertEquals(1, library.getBooks());
+    }
+
+    @Test
+    public void lentBookDueDateSet() {
+        library.addBook(book1);
+        library.addBook(book2);
+        library.lendBook(book1, borrower, "11/07/2020");
+        assertEquals("11/07/2020", book1.getDueDate());
     }
 
     @Test
@@ -84,9 +92,17 @@ public class LibraryTest {
     @Test
     public void canReceiveReturnedBook() {
         library.addBook(book1);
-        library.lendBook(book1, borrower);
+        library.lendBook(book1, borrower, "23/05/2020");
         borrower.returnBook(book1, library);
         assertEquals(1, library.getBooks());
+    }
+
+    @Test
+    public void returnedBookDueDateReset() {
+        library.addBook(book1);
+        library.lendBook(book1, borrower, "23/05/2020");
+        borrower.returnBook(book1, library);
+        assertEquals("", book1.getDueDate());
     }
 
     @Test

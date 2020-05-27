@@ -30,5 +30,6 @@ public class Borrower {
     public void returnBook(Book book, Library library) {
         removeBook(book);
         library.addBook(book);
+        book.setDueDate("");
     }
 }

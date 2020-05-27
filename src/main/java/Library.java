@@ -33,9 +33,10 @@ public class Library {
         this.books.remove(index);
     }
 
-    public void lendBook(Book book, Borrower borrower) {
+    public void lendBook(Book book, Borrower borrower, String date) {
         borrower.addBook(book);
         removeBook(book);
+        book.setDueDate(date);
     }
 
     public int getGenreCountSize() {
