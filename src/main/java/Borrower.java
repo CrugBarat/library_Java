@@ -31,5 +31,7 @@ public class Borrower {
         removeBook(book);
         library.addBook(book);
         book.setDueDate("");
+        library.removeFromLoaned(book);
+
     }
 }

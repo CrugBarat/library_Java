@@ -51,6 +51,25 @@ public class LibraryTest {
     }
 
     @Test
+    public void loanedHasNoBooks() {
+        assertEquals(0, library.getLoanedBookSize());
+    }
+
+    @Test
+    public void canAddBookToLoaned() {
+        library.addBookToLoaned(book2);
+        assertEquals(1, library.getLoanedBookSize());
+    }
+
+    @Test
+    public void canRemoveBookToLoaned() {
+        library.addBookToLoaned(book1);
+        library.addBookToLoaned(book2);
+        library.removeFromLoaned(book2);
+        assertEquals(1, library.getLoanedBookSize());
+    }
+
+    @Test
     public void canLendBook() {
         library.addBook(book1);
         library.addBook(book2);
@@ -119,20 +138,20 @@ public class LibraryTest {
 
     @Test
     public void canGetOverdueBooksT1() {
-        book1 = new Book("Mort", "Terry Pratchett", "Comic Fantasy", "11/05/2020");
-        book2 = new Book("Wizard and Glass", "Stephen King", "Fantasy", "18/05/2020");
         library.addBook(book1);
         library.addBook(book2);
+        library.lendBook(book1, borrower, "11/05/2020");
+        library.lendBook(book2, borrower, "17/05/2020");
         library.getOverdueBooks();
         assertEquals(2, library.getOverdueBooksSize());
     }
 
     @Test
     public void canGetOverdueBooksT2() {
-        book1 = new Book("Mort", "Terry Pratchett", "Comic Fantasy", "11/05/2020");
-        book2 = new Book("Wizard and Glass", "Stephen King", "Fantasy", "31/05/2020");
         library.addBook(book1);
         library.addBook(book2);
+        library.lendBook(book1, borrower, "11/05/2020");
+        library.lendBook(book2, borrower, "29/05/2020");
         library.getOverdueBooks();
         assertEquals(1, library.getOverdueBooksSize());
     }

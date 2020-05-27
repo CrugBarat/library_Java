@@ -9,12 +9,14 @@ public class Library {
     private ArrayList<Book> books;
     private int capacity;
     private HashMap<String, Integer> genreCount;
+    private ArrayList<Book> loanedBooks;
     private ArrayList<Book> overdueBooks;
 
     public Library(int capacity){
         this.books = new ArrayList<Book>();
         this.capacity = capacity;
         this.genreCount = new HashMap<String, Integer>();
+        this.loanedBooks = new ArrayList<Book>();
         this.overdueBooks = new ArrayList<Book>();
     }
 
@@ -36,10 +38,24 @@ public class Library {
         this.books.remove(index);
     }
 
+    public int getLoanedBookSize() {
+        return this.loanedBooks.size();
+    }
+
+    public void addBookToLoaned(Book book) {
+        this.loanedBooks.add(book);
+    }
+
+    public void removeFromLoaned(Book book) {
+        int index = this.loanedBooks.indexOf(book);
+        this.loanedBooks.remove(index);
+    }
+
     public void lendBook(Book book, Borrower borrower, String date) {
+        book.setDueDate(date);
         borrower.addBook(book);
         removeBook(book);
-        book.setDueDate(date);
+        addBookToLoaned(book);
     }
 
     public int getGenreCountSize() {
@@ -74,7 +90,7 @@ public class Library {
     }
 
     public void getOverdueBooks() {
-        for (Book book : this.books) {
+        for (Book book : this.loanedBooks) {
             try {
                 if (book.parseDueDate().compareTo(parseCurrentDate()) < 0) {
                     this.overdueBooks.add(book);
@@ -84,4 +100,5 @@ public class Library {
             }
         }
     }
+
 }
