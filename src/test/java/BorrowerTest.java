@@ -13,8 +13,8 @@ public class BorrowerTest {
     public void before() {
         borrower = new Borrower("Jane Doe");
         library = new Library(5);
-        book1 = new Book("Mort", "Terry Pratchett", "Comic Fantasy", "12/06/2020");
-        book2 = new Book("Wizard and Glass", "Stephen King", "Fantasy", "07/06/2020");
+        book1 = new Book("Mort", "Terry Pratchett", "Comic Fantasy", "");
+        book2 = new Book("Wizard and Glass", "Stephen King", "Fantasy", "");
     }
 
     @Test
