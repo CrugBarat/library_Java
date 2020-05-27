@@ -57,7 +57,7 @@ public class LibraryTest {
     }
 
     @Test
-    public void lentBookDueDateSet() {
+    public void loanedBookDueDateSet() {
         library.addBook(book1);
         library.addBook(book2);
         library.lendBook(book1, borrower, "11/07/2020");
