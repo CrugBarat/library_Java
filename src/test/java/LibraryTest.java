@@ -89,4 +89,9 @@ public class LibraryTest {
         assertEquals(1, library.getBooks());
     }
 
+    @Test
+    public void overdueBooksStartsAtZero() {
+        assertEquals(0, library.getOverdueBooks());
+    }
+
 }

@@ -6,11 +6,13 @@ public class Library {
     private ArrayList<Book> books;
     private int capacity;
     private HashMap<String, Integer> genreCount;
+    private ArrayList<Book> overdueBooks;
 
     public Library(int capacity){
         this.books = new ArrayList<Book>();
         this.capacity = capacity;
         this.genreCount = new HashMap<String, Integer>();
+        this.overdueBooks = new ArrayList<Book>();
     }
 
     public int getBooks() {
@@ -55,5 +57,9 @@ public class Library {
             int value = getGenreValue(book) + 1;
             this.genreCount.replace(book.getGenre(), value);
         }
+    }
+
+    public int getOverdueBooks() {
+        return this.overdueBooks.size();
     }
 }
