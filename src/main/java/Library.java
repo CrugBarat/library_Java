@@ -91,12 +91,8 @@ public class Library {
 
     public void getOverdueBooks() {
         for (Book book : this.loanedBooks) {
-            try {
-                if (book.parseDueDate().compareTo(parseCurrentDate()) < 0) {
-                    this.overdueBooks.add(book);
-                }
-            } catch (ParseException e) {
-                e.printStackTrace();
+            if (book.parseDueDate().compareTo(parseCurrentDate()) < 0) {
+                this.overdueBooks.add(book);
             }
         }
     }

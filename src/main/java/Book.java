@@ -36,10 +36,16 @@ public class Book {
         this.dueDate = date;
     }
 
-    public String parseDueDate() throws ParseException {
+    public String parseDueDate() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        Date date = sdf.parse(getDueDate());
+        Date date = null;
+        try {
+            date = sdf.parse(getDueDate());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         return sdf.format(date);
     }
+
 
 }

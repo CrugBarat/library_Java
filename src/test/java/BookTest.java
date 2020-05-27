@@ -1,8 +1,6 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import java.text.ParseException;
-
 import static org.junit.Assert.assertEquals;
 
 public class BookTest {
@@ -49,11 +47,7 @@ public class BookTest {
     @Test
     public void getParsedDate() {
         book2.setDueDate("12/06/2020");
-        try {
-            assertEquals("12/06/2020", book2.parseDueDate());
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        assertEquals("12/06/2020", book2.parseDueDate());
     }
 
 }
