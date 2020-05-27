@@ -9,7 +9,7 @@ public class BookTest {
 
     @Before
     public void before(){
-        book = new Book("The Gunslinger", "Stephen King", "Sci-Fi");
+        book = new Book("The Gunslinger", "Stephen King", "Sci-Fi", "31/05/2020");
     }
 
     @Test
@@ -27,6 +27,9 @@ public class BookTest {
         assertEquals("Sci-Fi", book.getGenre());
     }
 
-
+    @Test
+    public void hasDueDate(){
+        assertEquals("31/05/2020", book.getDueDate());
+    }
 
 }

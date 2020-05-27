@@ -3,11 +3,13 @@ public class Book {
     private String title;
     private String author;
     private String genre;
+    private String dueDate;
 
-    public Book(String title, String author, String genre) {
+    public Book(String title, String author, String genre, String dueDate) {
         this.title = title;
         this.author = author;
         this.genre = genre;
+        this.dueDate = dueDate;
     }
 
     public String getTitle() {
@@ -20,5 +22,9 @@ public class Book {
 
     public String getGenre() {
         return this.genre;
+    }
+
+    public String getDueDate() {
+        return this.dueDate;
     }
 }

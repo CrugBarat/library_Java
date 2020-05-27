@@ -12,8 +12,8 @@ public class LibraryTest {
     @Before
     public void before() {
         library = new Library(5);
-        book1 = new Book("Mort", "Terry Pratchett", "Comic Fantasy");
-        book2 = new Book("Wizard and Glass", "Stephen King", "Fantasy");
+        book1 = new Book("Mort", "Terry Pratchett", "Comic Fantasy", "31/05/2020");
+        book2 = new Book("Wizard and Glass", "Stephen King", "Fantasy", "22/06/2020");
         borrower = new Borrower("Jane Doe");
     }
 
