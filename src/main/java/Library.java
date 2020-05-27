@@ -1,4 +1,7 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 public class Library {
@@ -64,7 +67,21 @@ public class Library {
         return this.overdueBooks.size();
     }
 
-    public void getOverdueBooks() {
+    public String parseCurrentDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY");
+        Date date = new Date(System.currentTimeMillis());
+        return sdf.format(date);
+    }
 
+    public void getOverdueBooks() {
+        for (Book book : this.books) {
+            try {
+                if (book.parseDueDate().compareTo(parseCurrentDate()) < 0) {
+                    this.overdueBooks.add(book);
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

@@ -1,6 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.text.ParseException;
+
 import static org.junit.Assert.assertEquals;
 
 public class LibraryTest {
@@ -111,9 +113,16 @@ public class LibraryTest {
     }
 
     @Test
-    public void getOverdueBooks() {
-        library.lendBook(book1, borrower, "21/05/2020");
-        library.lendBook(book2, borrower, "19/05/2020");
+    public void getParsedCurrentDate() {
+        assertEquals("27/05/2020", library.parseCurrentDate());
+    }
+
+    @Test
+    public void canGetOverdueBooks() {
+        book1 = new Book("Mort", "Terry Pratchett", "Comic Fantasy", "11/05/2020");
+        book2 = new Book("Wizard and Glass", "Stephen King", "Fantasy", "18/05/2020");
+        library.addBook(book1);
+        library.addBook(book2);
         library.getOverdueBooks();
         assertEquals(2, library.getOverdueBooksSize());
     }
