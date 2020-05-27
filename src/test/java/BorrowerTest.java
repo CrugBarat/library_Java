@@ -41,4 +41,12 @@ public class BorrowerTest {
         assertEquals(1, borrower.getCollection());
     }
 
+    @Test
+    public void canRemoveBook() {
+        library.addBook(book1);
+        library.lendBook(book1, borrower);
+        borrower.removeBook(book1);
+        assertEquals(0, borrower.getCollection());
+    }
+
 }
