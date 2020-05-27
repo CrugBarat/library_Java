@@ -60,7 +60,11 @@ public class Library {
         }
     }
 
-    public int getOverdueBooks() {
+    public int getOverdueBooksSize() {
         return this.overdueBooks.size();
+    }
+
+    public void getOverdueBooks() {
+
     }
 }

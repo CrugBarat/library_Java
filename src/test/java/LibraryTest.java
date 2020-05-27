@@ -107,12 +107,15 @@ public class LibraryTest {
 
     @Test
     public void overdueBooksStartsAtZero() {
-        assertEquals(0, library.getOverdueBooks());
+        assertEquals(0, library.getOverdueBooksSize());
     }
 
     @Test
     public void getOverdueBooks() {
-
+        library.lendBook(book1, borrower, "21/05/2020");
+        library.lendBook(book2, borrower, "19/05/2020");
+        library.getOverdueBooks();
+        assertEquals(2, library.getOverdueBooksSize());
     }
 
 }

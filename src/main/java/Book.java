@@ -1,3 +1,7 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Book {
 
     private String title;
@@ -31,4 +35,11 @@ public class Book {
     public void setDueDate(String date) {
         this.dueDate = date;
     }
+
+    public String parseDueDate() throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = sdf.parse(getDueDate());
+        return sdf.format(date);
+    }
+
 }
