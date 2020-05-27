@@ -118,13 +118,23 @@ public class LibraryTest {
     }
 
     @Test
-    public void canGetOverdueBooks() {
+    public void canGetOverdueBooksT1() {
         book1 = new Book("Mort", "Terry Pratchett", "Comic Fantasy", "11/05/2020");
         book2 = new Book("Wizard and Glass", "Stephen King", "Fantasy", "18/05/2020");
         library.addBook(book1);
         library.addBook(book2);
         library.getOverdueBooks();
         assertEquals(2, library.getOverdueBooksSize());
+    }
+
+    @Test
+    public void canGetOverdueBooksT2() {
+        book1 = new Book("Mort", "Terry Pratchett", "Comic Fantasy", "11/05/2020");
+        book2 = new Book("Wizard and Glass", "Stephen King", "Fantasy", "31/05/2020");
+        library.addBook(book1);
+        library.addBook(book2);
+        library.getOverdueBooks();
+        assertEquals(1, library.getOverdueBooksSize());
     }
 
 }
