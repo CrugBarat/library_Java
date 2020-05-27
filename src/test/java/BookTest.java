@@ -38,4 +38,10 @@ public class BookTest {
         assertEquals("", book2.getDueDate());
     }
 
+    @Test
+    public void canSetDueDate(){
+        book2.setDueDate("12/06/2020");
+        assertEquals("12/06/2020", book2.getDueDate());
+    }
+
 }

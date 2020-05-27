@@ -27,4 +27,8 @@ public class Book {
     public String getDueDate() {
         return this.dueDate;
     }
+
+    public void setDueDate(String date) {
+        this.dueDate = date;
+    }
 }
