@@ -24,26 +24,42 @@ public class Library {
         return this.books.size();
     }
 
-    public void addBook(Book book) {
-        if(getBooks() < this.capacity)
-        this.books.add(book);
-    }
-
     public int getCapacity() {
         return this.capacity;
-    }
-
-    public void removeBook(Book book) {
-        int index = this.books.indexOf(book);
-        this.books.remove(index);
     }
 
     public int getLoanedBookSize() {
         return this.loanedBooks.size();
     }
 
+    public int getGenreCountSize() {
+        return this.genreCount.size();
+    }
+
+    public int getGenreValue(Book book) {
+        return this.genreCount.get(book.getGenre());
+    }
+
+    public int getOverdueBooksSize() {
+        return this.overdueBooks.size();
+    }
+
+    public void addBook(Book book) {
+        if(getBooks() < this.capacity)
+        this.books.add(book);
+    }
+
     public void addBookToLoaned(Book book) {
         this.loanedBooks.add(book);
+    }
+
+    public void addGenre(Book book, Integer value) {
+        this.genreCount.put(book.getGenre(), value);
+    }
+
+    public void removeBook(Book book) {
+        int index = this.books.indexOf(book);
+        this.books.remove(index);
     }
 
     public void removeFromLoaned(Book book) {
@@ -58,18 +74,6 @@ public class Library {
         addBookToLoaned(book);
     }
 
-    public int getGenreCountSize() {
-        return this.genreCount.size();
-    }
-
-    public void addGenre(Book book, Integer value) {
-        this.genreCount.put(book.getGenre(), value);
-    }
-
-    public int getGenreValue(Book book) {
-        return this.genreCount.get(book.getGenre());
-    }
-
     public void incrementGenreValue(Book book) {
         if (!this.genreCount.containsKey(book.getGenre())) {
             addGenre(book, 1);
@@ -77,10 +81,6 @@ public class Library {
             int value = getGenreValue(book) + 1;
             this.genreCount.replace(book.getGenre(), value);
         }
-    }
-
-    public int getOverdueBooksSize() {
-        return this.overdueBooks.size();
     }
 
     public String parseCurrentDate() {
