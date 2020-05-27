@@ -26,4 +26,9 @@ public class Borrower {
         int index = this.collection.indexOf(book);
         this.collection.remove(index);
     }
+
+    public void returnBook(Book book, Library library) {
+        removeBook(book);
+        library.addBook(book);
+    }
 }

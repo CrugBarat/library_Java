@@ -81,4 +81,12 @@ public class LibraryTest {
         assertEquals(2, library.getGenreValue(book1));
     }
 
+    @Test
+    public void canReceiveReturnedBook() {
+        library.addBook(book1);
+        library.lendBook(book1, borrower);
+        borrower.returnBook(book1, library);
+        assertEquals(1, library.getBooks());
+    }
+
 }

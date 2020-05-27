@@ -49,4 +49,12 @@ public class BorrowerTest {
         assertEquals(0, borrower.getCollection());
     }
 
+    @Test
+    public void canReturnBookToLibrary() {
+        library.addBook(book1);
+        library.lendBook(book1, borrower);
+        borrower.returnBook(book1, library);
+        assertEquals(0, borrower.getCollection());
+    }
+
 }
